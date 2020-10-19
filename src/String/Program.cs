@@ -17,6 +17,8 @@ namespace String
             // string.Join coloca uma lista em uma string. 
             // O 1º parâmetro é o 'caractere separador', o 2º é a lista.
             Console.WriteLine("Moro em " + string.Join(", ", parametros) + " anos.");
+
+
         }
     }
 }
