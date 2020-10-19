@@ -2,19 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace teste
+namespace Linq_Lambda.Models
 {
     public class Pessoa
     {
-        public Pessoa()
-        {
-
-        }
         public string Nome;
         public int Idade;
         public List<Pessoa> Pessoas;
-
-
         public void PopularListaPessoas()
         {
             Pessoas = new List<Pessoa>()
@@ -26,6 +20,8 @@ namespace teste
                 new Pessoa() { Nome = "Vitor Hugo", Idade = 18 },
             };
         }
+
+
         public void ImprimePessoasMaiorDeIdade_Linq()
         {
             var filtroPessoas = from p in Pessoas
@@ -122,5 +118,7 @@ namespace teste
                 Console.WriteLine(item.Key);
             }
         }
+
+
     }
 }
