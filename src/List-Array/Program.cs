@@ -14,14 +14,17 @@ namespace List_Array
                                     };
 
 
-            System.Console.WriteLine(array2D[0, 0]); // <-- print 11
-            System.Console.WriteLine(array2D[1, 1]); // <-- print 5
-            System.Console.WriteLine(array2D[2, 2]); // <-- print -12
+            Console.WriteLine(array2D[0, 0]); // <-- print 11
+            Console.WriteLine(array2D[1, 1]); // <-- print 5
+            Console.WriteLine(array2D[2, 2]); // <-- print -12
 
             foreach (var item in array2D)
             {
-                System.Console.WriteLine(item); // <-- print all
+                Console.WriteLine(item); // <-- print all
             }
+
+            Console.WriteLine(array2D.Length); //<-- print the number of element
+
         }
 
     }
