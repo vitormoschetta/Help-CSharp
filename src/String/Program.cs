@@ -19,7 +19,7 @@ namespace String
             List<string> lista = new ItemsString().simpleArraySum();
             Console.WriteLine(string.Join(", ", lista));
             // string.Join coloca uma lista em uma string. 
-            // O 1º parâmetro é o 'caractere separador', o 2º é a lista.
+            // O 1º parâmetro é o 'caractere separador', o 2º é a lista.            
 
 
 
