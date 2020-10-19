@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace List_Array
 {
@@ -25,6 +26,32 @@ namespace List_Array
 
             Console.WriteLine(array2D.Length); //<-- print the number of element
 
+
+
+            // Matriz de coleção de lista:
+            List<List<int>> arr = new List<List<int>>(){
+                                            new List<int>() { 11, 2,  4  },
+                                            new List<int>() {  4, 5,  6  },
+                                            new List<int>() { 10, 8, -12 },
+                                        };
+
+            // Duas formas de iterar:
+
+            foreach (var item in arr)
+            {
+                for (int i = 0; i < item.Count; i++)
+                {
+                    Console.WriteLine(item[i]);
+                }
+            }
+
+            for (int i = 0; i < arr.Count; i++)
+            {
+                for (int j = 0; j < arr[i].Count; j++)
+                {
+                    Console.WriteLine(arr[i][j]);
+                }
+            }
         }
 
     }
