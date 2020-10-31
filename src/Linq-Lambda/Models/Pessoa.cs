@@ -30,20 +30,20 @@ namespace Linq_Lambda.Models
 
             Console.WriteLine("\n LINQ - Pessoas maiores de idade: ");
             foreach (var item in filtroPessoas)
-            {
                 Console.WriteLine(item);
-            }
+
         }
 
         public void ImprimePessoasMaiorDeIdade_Lambda()
         {
-            var filtroPessoas = Pessoas.Where(x => x.Idade > 18);
+            var filtroPessoas = Pessoas
+                                .Where(x => x.Idade > 18)
+                                .Select(x => x.Nome);
 
             Console.WriteLine("\n LAMBDA - Pessoas maiores de idade: ");
             foreach (var item in filtroPessoas)
-            {
-                Console.WriteLine(item.Nome);
-            }
+                Console.WriteLine(item);
+
         }
 
         public void ImprimePessoasOrdenadasPeloNome_Linq()
@@ -54,20 +54,18 @@ namespace Linq_Lambda.Models
 
             Console.WriteLine("\n LINQ - Pessoas ordenadas pelo nome: ");
             foreach (var item in filtroPessoas)
-            {
                 Console.WriteLine(item);
-            }
         }
 
         public void ImprimePessoasOrdenadasPeloNome_Lambda()
         {
-            var filtroPessoas = Pessoas.OrderBy(x => x.Nome);
+            var filtroPessoas = Pessoas
+                                .OrderBy(x => x.Nome)
+                                .Select(x => x.Nome);
 
             Console.WriteLine("\n LAMBDA - Pessoas ordenadas pelo nome: ");
             foreach (var item in filtroPessoas)
-            {
-                Console.WriteLine(item.Nome);
-            }
+                Console.WriteLine(item);
         }
 
         public void ImprimePessoasComNomeVitor_Linq()
@@ -78,20 +76,18 @@ namespace Linq_Lambda.Models
 
             Console.WriteLine("\n LINQ - Pessoas que possuem o nome 'Vitor': ");
             foreach (var item in filtroPessoas)
-            {
                 Console.WriteLine(item);
-            }
         }
 
         public void ImprimePessoasComNomeVitor_Lambda()
         {
-            var filtroPessoas = Pessoas.Where(x => x.Nome.Contains("Vitor"));
+            var filtroPessoas = Pessoas
+                                .Where(x => x.Nome.Contains("Vitor"))
+                                .Select(x => x.Nome);
 
             Console.WriteLine("\n LAMBDA - Pessoas que possuem o nome 'Vitor': ");
             foreach (var item in filtroPessoas)
-            {
-                Console.WriteLine(item.Nome);
-            }
+                Console.WriteLine(item);
         }
 
 
@@ -102,21 +98,16 @@ namespace Linq_Lambda.Models
 
             Console.WriteLine("\n Pessoas agrupadas por nome (não repete se tiver mesmo nome): ");
             foreach (var item in filtroPessoas)
-            {
                 Console.WriteLine(item.Key);
-            }
         }
 
         public void ImprimePessoasAgrupadasPeloNome_Lambda()
         {
             var filtroPessoas = Pessoas.GroupBy(x => x.Nome);
 
-
             Console.WriteLine("\n Pessoas agrupadas por nome (não repete se tiver mesmo nome): ");
             foreach (var item in filtroPessoas)
-            {
                 Console.WriteLine(item.Key);
-            }
         }
 
 

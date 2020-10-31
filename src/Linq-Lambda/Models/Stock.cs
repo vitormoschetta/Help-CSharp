@@ -23,6 +23,27 @@ namespace Linq_Lambda.Models
             return componentsList;
         }
 
+
+        public int QuantidadeTotalItensEstoque()
+        {
+            var repository = new ComponentRepository();
+            var qtd = repository.Stocks
+                .Where(x => x.Quantity > 5)
+                .Select(x => x.Quantity)
+                .Aggregate((acc, x) => acc + x);
+
+            return qtd;
+        }
+
+
+        public bool ExisteItemZerado()
+        {
+            var repository = new ComponentRepository();
+            bool exist = repository.Stocks.Where(x => x.Quantity < -1).Any();
+            return exist;
+        }
+
+
     }
 
 
