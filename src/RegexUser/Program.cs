@@ -9,7 +9,7 @@ namespace RegexUser
     {
         static void Main(string[] args)
         {            
-            var Exemplos = new Exemplos();
+            // var Exemplos = new Exemplos();
             // Exemplos.ProcurarOcorrenciaDeTextos02();
             // Exemplos.ProcurarOcorrenciaDeTextos03();
             // Exemplos.ProcurarOcorrenciaDeTextos04();
@@ -18,7 +18,16 @@ namespace RegexUser
             // Exemplos.ProcurarOcorrenciaDeTextos07();
             // Exemplos.ProcurarOcorrenciaDeTextos08();
             // Exemplos.ProcurarOcorrenciaDeTextos09();
-            Exemplos.ProcurarOcorrenciaDeTextos10();
+            // Exemplos.ProcurarOcorrenciaDeTextos10();
+
+            var Exemplos = new Exemplos02();
+            // Exemplos.ProcurarOcorrenciaDeTextos();
+            // Exemplos.ProcurarOcorrenciaDeTextos02();
+            // Exemplos.ProcurarOcorrenciaDeTextos03();
+            // Exemplos.ProcurarOcorrenciaDeTextos04();
+            // Exemplos.ProcurarOcorrenciaDeTextos05();
+            // Exemplos.ProcurarOcorrenciaDeTextos06();
+            Exemplos.ProcurarOcorrenciaDeTextos07();
         }
     }
 

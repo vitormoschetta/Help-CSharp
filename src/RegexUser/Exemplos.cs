@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace RegexUser
 {
+    // Trabalhar com localização de textos e identificação de sequencias de texto
     public class Exemplos
     {       
         private List<string> frases;
