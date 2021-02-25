@@ -1,14 +1,26 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Temporizador
 {
     public class Program
     {
         static void Main(string[] args)
-        {
-            Console.WriteLine("Clique para Iniciar");
-			var a = Console.ReadLine();
-			Processador.processar();
+        {            
+            var stopwatch = new Stopwatch();            
+            
+            Console.WriteLine("Iniciando contagem de 3 segundos...");
+            stopwatch.Start();
+
+            Thread.Sleep(3000);             
+
+            stopwatch.Stop();
+            Console.WriteLine($"Tempo passado: {stopwatch.Elapsed}");
+
+            stopwatch.Restart();
+
         }
     }
 }
