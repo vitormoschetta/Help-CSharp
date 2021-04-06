@@ -7,16 +7,15 @@ namespace Threads
     {
         public static void Execute()
         {
-            var thread = new Thread(MeuMetodoA);
-            thread.Start();
+            var thread = new Thread(MeuMetodoA);            
 
             MeuMetodoB();        
+
+            thread.Start();
         }
 
         private static void MeuMetodoA()
-        {            
-            Thread.Sleep(2000);
-            
+        {                                    
             Console.WriteLine("Metodo A");            
         }
 
