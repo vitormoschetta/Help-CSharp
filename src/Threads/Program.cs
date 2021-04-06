@@ -7,7 +7,7 @@ namespace Threads
     {
         static void Main(string[] args)
         {
-            // Apenas uma Thread executando os métodos:
+            // Apenas uma Thread executando os métodos de forma síncrona:
             Metodos.MetodoA();
             Metodos.MetodoB();
             Metodos.MetodoC();
