@@ -7,12 +7,20 @@ namespace Threads
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Executando Classe Normal...");
-            Normal.Execute();
+            // Apenas uma Thread executando os métodos:
+            Metodos.MetodoA();
+            Metodos.MetodoB();
+            Metodos.MetodoC();
 
-            Console.WriteLine("\nExecutando Classe UsingThreads...");
-            UsingThreads.Execute();      
+            Console.WriteLine("\n");
 
+            // Uma Thread para cada método (execução parelela):
+            var threadA = new Thread(Metodos.MetodoA); 
+            var threadB = new Thread(Metodos.MetodoB); 
+            var threadC = new Thread(Metodos.MetodoC); 
+            threadA.Start();
+            threadB.Start();
+            threadC.Start();
         }
 
     }
