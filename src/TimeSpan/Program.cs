@@ -6,7 +6,7 @@ namespace IntervaloTempo
     {
         static void Main(string[] args)
         {
-            
+            MostraDiferencaEntreDuasDatas();
         }
 
         static void RepresentacaoTimeSpan()

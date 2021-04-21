@@ -15,7 +15,7 @@ namespace TryParse
         {
             String[] valores = { null, "160519", "9432.0", "16,667","-322", "+4302", "(100);", "01FA" };
             foreach (var valor in valores)
-            {                                
+            {                                 
                 Int32.TryParse(valor, out int numero);
                 if (numero != 0)
                 {
