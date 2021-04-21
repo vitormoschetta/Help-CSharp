@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
-using Linq_Lambda.Repositories;
+using Joins.Repositories;
 
-namespace Linq_Lambda.Models
+namespace Joins.Models
 {
     public class Stock
     {
@@ -42,9 +42,5 @@ namespace Linq_Lambda.Models
             bool exist = repository.Stocks.Where(x => x.Quantity < -1).Any();
             return exist;
         }
-
-
     }
-
-
 }

@@ -1,6 +1,6 @@
 using System;
 
-namespace Problemas.Listas
+namespace Extras
 {
     public class Item
     {

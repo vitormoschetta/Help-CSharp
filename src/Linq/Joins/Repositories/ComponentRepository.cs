@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Linq_Lambda.Models;
+using Joins.Models;
 
-namespace Linq_Lambda.Repositories
+namespace Joins.Repositories
 {
     public class ComponentRepository
     {

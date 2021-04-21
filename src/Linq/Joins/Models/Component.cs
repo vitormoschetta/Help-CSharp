@@ -1,4 +1,4 @@
-namespace Linq_Lambda.Models
+namespace Joins.Models
 {
     public class Component
     {

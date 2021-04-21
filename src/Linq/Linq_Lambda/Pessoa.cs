@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Linq_Lambda.Models
+namespace Linq
 {
     public class Pessoa
     {
@@ -20,21 +20,9 @@ namespace Linq_Lambda.Models
                 new Pessoa() { Nome = "Vitor Hugo", Idade = 18 },
             };
         }
+        
 
-
-        public void ImprimePessoasMaiorDeIdade_Linq()
-        {
-            var filtroPessoas = from p in Pessoas
-                                where p.Idade > 18
-                                select p.Nome;
-
-            Console.WriteLine("\n LINQ - Pessoas maiores de idade: ");
-            foreach (var item in filtroPessoas)
-                Console.WriteLine(item);
-
-        }
-
-        public void ImprimePessoasMaiorDeIdade_Lambda()
+        public void ImprimePessoasMaiorDeIdade()
         {
             var filtroPessoas = Pessoas
                                 .Where(x => x.Idade > 18)
@@ -46,18 +34,8 @@ namespace Linq_Lambda.Models
 
         }
 
-        public void ImprimePessoasOrdenadasPeloNome_Linq()
-        {
-            var filtroPessoas = from p in Pessoas
-                                orderby p.Nome ascending
-                                select p.Nome;
 
-            Console.WriteLine("\n LINQ - Pessoas ordenadas pelo nome: ");
-            foreach (var item in filtroPessoas)
-                Console.WriteLine(item);
-        }
-
-        public void ImprimePessoasOrdenadasPeloNome_Lambda()
+        public void ImprimePessoasOrdenadasPeloNome()
         {
             var filtroPessoas = Pessoas
                                 .OrderBy(x => x.Nome)
@@ -68,18 +46,8 @@ namespace Linq_Lambda.Models
                 Console.WriteLine(item);
         }
 
-        public void ImprimePessoasComNomeVitor_Linq()
-        {
-            var filtroPessoas = from p in Pessoas
-                                where p.Nome.Contains("Vitor")
-                                select p.Nome;
 
-            Console.WriteLine("\n LINQ - Pessoas que possuem o nome 'Vitor': ");
-            foreach (var item in filtroPessoas)
-                Console.WriteLine(item);
-        }
-
-        public void ImprimePessoasComNomeVitor_Lambda()
+        public void ImprimePessoasComNomeVitor()
         {
             var filtroPessoas = Pessoas
                                 .Where(x => x.Nome.Contains("Vitor"))
@@ -91,17 +59,7 @@ namespace Linq_Lambda.Models
         }
 
 
-        public void ImprimePessoasAgrupadasPeloNome_Linq()
-        {
-            var filtroPessoas = from p in Pessoas
-                                group Nome by p.Nome;
-
-            Console.WriteLine("\n Pessoas agrupadas por nome (não repete se tiver mesmo nome): ");
-            foreach (var item in filtroPessoas)
-                Console.WriteLine(item.Key);
-        }
-
-        public void ImprimePessoasAgrupadasPeloNome_Lambda()
+        public void ImprimePessoasAgrupadasPeloNome()
         {
             var filtroPessoas = Pessoas.GroupBy(x => x.Nome);
 
@@ -109,7 +67,5 @@ namespace Linq_Lambda.Models
             foreach (var item in filtroPessoas)
                 Console.WriteLine(item.Key);
         }
-
-
     }
 }

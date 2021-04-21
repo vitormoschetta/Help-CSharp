@@ -13,7 +13,7 @@ namespace In
 
         // A palavra reservadad 'in' nos informa que esse argumento 'number' foi passado como
         // referência mas bloqueia a modificação de seu valor. 
-        static int RaizQuadrada(in int number)
+        static void RaizQuadrada(in int number)
         {
             // number = number * number;    <-- isso não funcionaria.
             // A única utilidade da variável 'number' aqui seria servir de referência para outros processos e/ou 

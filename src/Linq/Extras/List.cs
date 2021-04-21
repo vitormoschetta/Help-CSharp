@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Problemas.Listas
+namespace Extras
 {
-    public class ProblemasComListas
+    public class List
     {
-        List<Item> Lista;
-        public ProblemasComListas()
+        List<Item> Lista = new List<Item>();
+        public List()
         {
             int qtd = 0;
             decimal price = 0;
@@ -72,8 +72,5 @@ namespace Problemas.Listas
 
         // Retornar verdadeiro ou falso se existe item com mesmo nome
         public bool ExisteItemMesmoNome() => Lista.All(x => x.Equals(x.Name));
-
-
     }
-
 }
