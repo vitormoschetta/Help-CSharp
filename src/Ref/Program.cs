@@ -9,10 +9,10 @@ namespace Ref
             int number = 2;
 
             var result = RaizQuadrada(number);
-            Console.WriteLine(result); // outpub: 4 
+            Console.WriteLine(result); // outpub: 4
 
             RaizQuadradaRef(ref number);
-            Console.WriteLine(number); // outpub: 4               
+            Console.WriteLine(number); // outpub: 4      
         }
 
 
