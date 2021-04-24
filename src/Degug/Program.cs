@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 
-namespace Discovery
+namespace Degug
 {
     class Program
     {
         static void Main(string[] args)
         {
-            List<string> list = new List<string>();
+            Console.WriteLine("Hello World!");
         }
     }
-    
 }
