@@ -6,9 +6,11 @@ namespace _Queue
     // Queue é uma fila onde o primeiro elemento a entrar é o primeiro a sair (Dequeue)
     class Program
     {        
-        static Queue<string> queueOne = new Queue<string>();
+        static Queue<string> queueOne;
         static void Main(string[] args)
         {
+            queueOne = new Queue<string>();
+
             SetQueueOne();            
             Console.WriteLine(string.Join(" | ", queueOne));
 
@@ -24,6 +26,9 @@ namespace _Queue
             var valueMaisAntigo = queueOne.Peek();
             Console.WriteLine(valueMaisAntigo);
             Console.WriteLine(string.Join(" | ", queueOne));
+
+            if (queueOne.Contains("six"))
+                Console.WriteLine("\nChegamos ao fim");
         }
 
         static void SetQueueOne()
