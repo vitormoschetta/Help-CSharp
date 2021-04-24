@@ -28,6 +28,8 @@ namespace _Exceptions
             finally
             {
                 Console.WriteLine("Esse bloco sempre irá executar, independente se houve exceção ou não..");
+                // Esse bloco é excelente para desfazer operações iniciadas, liberar recursos, ou executar algo
+                // que independe da ocorrência de exceção..
             }
 
         }
