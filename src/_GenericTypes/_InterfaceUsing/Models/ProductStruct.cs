@@ -1,8 +1,8 @@
 namespace _InterfaceUsing.Models
 {
-    public class Customer
+    public struct ProductStruct
     {        
         public string Name { get; set; }
-        public string Email { get; set; }
+        public decimal Price { get; set; }
     }
 }

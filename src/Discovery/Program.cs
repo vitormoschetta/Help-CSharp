@@ -1,13 +1,12 @@
 ﻿using System;
 
-namespace _InterfaceUsing
+namespace Discovery
 {
     class Program
     {
-        // Verificar pasta 'Interfaces'
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+                        
         }
     }
 }

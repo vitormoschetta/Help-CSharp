@@ -3,14 +3,14 @@ using _InterfaceUsing.Models;
 
 namespace _InterfaceUsing.Repositories
 {
-    public class ProductRepository : IRepository<Product>
+    public class RepositoryB : IRepositoryB<ProductStruct>
     {
-        public void Add(Product item)
+        public void Add(ProductStruct item)
         {
             throw new System.NotImplementedException();
         }
 
-        public IEnumerable<Product> Get()
+        public IEnumerable<ProductStruct> Get()
         {
             throw new System.NotImplementedException();
         }
