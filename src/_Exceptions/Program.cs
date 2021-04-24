@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
 
-namespace Degug
+namespace _Exceptions
 {
     class Program
     {
@@ -26,10 +23,13 @@ namespace Degug
             }
             catch (DivideByZeroException ex)
             {
-                Console.WriteLine(ex.Message.ToString());
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.WriteLine("Esse bloco sempre irá executar, independente se houve exceção ou não..");
             }
 
         }
     }
-
 }
