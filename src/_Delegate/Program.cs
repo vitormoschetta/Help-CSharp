@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading;
-using _Delegate.Models;
 using _Delegate.Services;
 
 namespace _Delegate
@@ -19,7 +18,7 @@ namespace _Delegate
     */
 
     // Observe este exemplo e delegate abaixo:
-    public delegate decimal DelMyDel(decimal x, decimal y);    
+    public delegate void DelMyDel(decimal x, decimal y);    
 
     // Este delegado pode ser utilizado para receber como valor qualquer método que receba dois números decimais, e retorne um decimal.     
     
@@ -28,45 +27,37 @@ namespace _Delegate
     {        
         static void Main(string[] args)
         {             
+            // Instancia o delegate informando um método existente:
+
             DelPrint delPrint = new Printer().PublicPrint();
             Printer(delPrint);
 
             DelCalcGeneric delCalc = new Calculator().GenericCalc;
-            Calculator(delCalc);
+            Calculator(delCalc);          
 
-            DelGenericValidate<Product> delGenericValidate = new Validation().Validate;
-            Validate(delGenericValidate);
+
+            // Instancia o delegate criando um método:
+            DelMyDel delMyDel = delegate(decimal x, decimal y) { Console.WriteLine(x + y); };
+            delMyDel.Invoke(2,9);
+
+            // Instancia o delegate criando um método utilizando lambda expression:
+            DelMyDel delMyDel102 = (x,y) => { Console.WriteLine(x + y); };
+            delMyDel102.Invoke(55,1);
         }
 
 
         static void Printer(DelPrint delPrint)
         {
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
             delPrint.Invoke();
         }
 
 
         static void Calculator(DelCalcGeneric delCalc)
         {
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
             var result = delCalc.Invoke(2,5, '*');
             Console.WriteLine(result);
-        }
-
-
-        static void Validate(DelGenericValidate<Product> delGeneric)
-        {
-            Thread.Sleep(2000);
-            var product = new Product();
-            product.Id = Guid.NewGuid();
-            delGeneric.Invoke(product);
-        }
-
-        
-
-        
-    }
-
-    
-
+        }                      
+    }    
 }
