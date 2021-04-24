@@ -16,17 +16,23 @@ namespace Degug
 
         static void Main(string[] args)
         {
+            
             double a = 98, b = 0;
             double result;
 
             try
             {
+                Calculadora.Divider(5,0);
                 result = SafeDivision(a, b);
                 Console.WriteLine("{0} divided by {1} = {2}", a, b, result);
             }
             catch (DivideByZeroException ex)
             {
-                Console.WriteLine(ex.Message.ToString());
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.WriteLine("Esse bloco sempre irá executar, independente se houve exceção ou não..");
             }
 
         }
