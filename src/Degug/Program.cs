@@ -10,8 +10,14 @@ namespace Degug
     {        
         static void Main(string[] args)
         {   
-            var prod = new Product();
-            int number = 5;
+            List<string> list = new List<string>()
+            {
+                "one",
+                "two",
+                "three"
+            };
+
+            var x = list.Find(x => x.Contains("three"));
             
         }       
 
