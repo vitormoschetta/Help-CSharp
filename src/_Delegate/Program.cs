@@ -13,7 +13,7 @@ namespace _Delegate
     deve conter a mesma assinatura de método.
     
     Essa capacidade de se referir a um método como um parâmetro torna delegados ideais trabalhar com callback, ou promessas. Ou seja
-    passar uma funcionalidade inteira como parâmetro parar uma outra rotina, para que em um momento determinado o delegado seja invocado e execute
+    passar uma funcionalidade inteira como parâmetro para uma outra rotina, para que em um momento determinado o delegado seja invocado e execute
     a funcionalidade que de outra forma estaria fora do escopo.
     */
 
