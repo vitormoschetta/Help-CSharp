@@ -2,6 +2,7 @@
 
 namespace Ref
 {
+    // usamos ref para passar a variável por referência...
     class Program
     {
         static void Main(string[] args)

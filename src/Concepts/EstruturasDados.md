@@ -9,7 +9,8 @@ Uma fila é uma estrutura em que o acesso é restrito ao elemento mais antigo. O
 <br>
 
 ## Lista  
-Uma lista tem a vantagem de ser uma estrutura mais flexível. Ou seja, pode acomordar inserção e retirada de dados de locais arbritrários.  
+Uma lista tem a vantagem de ser uma estrutura mais flexível. Ou seja, pode acomordar inserção e retirada de dados de locais arbritrários.  A desvantagem desta 
+abordagem é que precisa de uma maior alocação de valores em memória. 
 
 <br>
 

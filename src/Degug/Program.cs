@@ -5,16 +5,15 @@ using System.Linq;
 
 namespace Degug
 {
+
     class Program
-    {
-
+    {        
         static void Main(string[] args)
-        {
-            Console.WriteLine(testForEquality(1,1));
-        }
-
-        static Func<int, int, bool> testForEquality = (x, y) => x == y;
-        
+        {   
+            var prod = new Product();
+            int number = 5;
+            
+        }       
 
     }
 

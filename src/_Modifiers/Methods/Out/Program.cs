@@ -2,6 +2,9 @@
 
 namespace Out
 {
+    // usando 'out' podemos passar um parâmetro sem precisar declará-lo antes. É importante perceber que esta variável já fica disponível no escopo de origem, 
+    // apos a passagem do método.
+    // Obs: passagem por referência.
     class Program
     {
         static void Main(string[] args)
