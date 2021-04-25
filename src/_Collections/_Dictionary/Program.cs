@@ -41,6 +41,8 @@ namespace _Dictionary
             dict.Remove("01"); // remove C#            
 
             dict.TryGetValue("02", out string item); // item = Python        
+
+            string valueA = dict["02"]; // valueA = Python            
         }
 
     }
