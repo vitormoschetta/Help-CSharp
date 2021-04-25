@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Params
+namespace _Params
 {
     class Program
     {

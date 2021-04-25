@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Ref
+namespace _Ref
 {
     // usamos ref para passar a variável por referência...
     class Program
