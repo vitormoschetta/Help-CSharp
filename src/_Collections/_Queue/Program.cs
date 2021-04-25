@@ -5,39 +5,48 @@ namespace _Queue
 {
     // Queue é uma fila onde o primeiro elemento a entrar é o primeiro a sair (Dequeue)
     class Program
-    {        
-        static Queue<string> queueOne;
+    {
+        static Queue<string> queue;
         static void Main(string[] args)
         {
-            queueOne = new Queue<string>();
-
-            SetQueueOne();            
-            Console.WriteLine(string.Join(" | ", queueOne));
-
-            // Dequeue retorna e remove o elemento mais antigo da coleção
-            var value01 = queueOne.Dequeue();            
-            Console.WriteLine(string.Join(" | ", queueOne));
-
-            // Enqueue adiciona um novo elemento na coleção
-            queueOne.Enqueue("six");
-            Console.WriteLine(string.Join(" | ", queueOne));
-
-            // Peek retorna o elemento mais antigo da coleção, sem removê-lo
-            var valueMaisAntigo = queueOne.Peek();
-            Console.WriteLine(valueMaisAntigo);
-            Console.WriteLine(string.Join(" | ", queueOne));
-
-            if (queueOne.Contains("six"))
-                Console.WriteLine("\nChegamos ao fim");
+            Setqueue();
+            ExecuteDequeue();
+            ExecuteEnqueue();
+            ExecutePeek();
         }
 
-        static void SetQueueOne()
-        {            
-            queueOne.Enqueue("one");
-            queueOne.Enqueue("two");
-            queueOne.Enqueue("three");
-            queueOne.Enqueue("four");
-            queueOne.Enqueue("five");
+        static void Setqueue()
+        {
+            queue = new Queue<string>();
+
+            queue.Enqueue("one");
+            queue.Enqueue("two");
+            queue.Enqueue("three");
+            queue.Enqueue("four");
+            queue.Enqueue("five");
+
+            Console.WriteLine(string.Join(" | ", queue));
+        }
+
+        static void ExecuteDequeue()
+        {
+            // Dequeue retorna e remove o elemento mais antigo da coleção
+            var value01 = queue.Dequeue();
+            Console.WriteLine(string.Join(" | ", queue));
+        }
+
+        static void ExecuteEnqueue()
+        {
+            // Enqueue adiciona um novo elemento na coleção
+            queue.Enqueue("six");
+            Console.WriteLine(string.Join(" | ", queue));
+        }
+
+        static void ExecutePeek()
+        {   
+            // Peek retorna o elemento mais antigo da coleção, sem removê-lo            
+            Console.WriteLine(queue.Peek());
+            Console.WriteLine(string.Join(" | ", queue));
         }
 
 
