@@ -4,6 +4,7 @@ using System.Collections.Generic;
 namespace _Queue
 {
     // Queue é uma fila onde o primeiro elemento a entrar é o primeiro a sair (Dequeue)
+    // (FIFO – First-In-First-Out)
     class Program
     {
         static Queue<string> queue;

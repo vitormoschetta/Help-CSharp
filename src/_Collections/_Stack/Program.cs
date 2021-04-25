@@ -4,6 +4,7 @@ using System.Collections.Generic;
 namespace _Stack
 {
     // Stack é uma pilha onde o último elemento a entrar é o primeiro a sair (Pop)
+    // (LIFO – Last-In-First-Out)
     class Program
     {
         static Stack<string> stack;
