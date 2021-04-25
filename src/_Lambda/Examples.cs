@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace _Lambda
 {
-    public class Other
+    public class Examples
     {
         // Problema: imprimir, em uma única linha, cada número da lista de 'numbers' ao quadrado.
         static int[] numbers = { 2, 3, 4, 5 };
@@ -17,7 +17,7 @@ namespace _Lambda
         }
 
 
-        // Resolvendo com For
+        // Resolvendo com loop puro (for)
         private static void Solution01()
         {
             var numbersSquare = new int[4];
@@ -31,7 +31,7 @@ namespace _Lambda
         }
 
 
-        // Resolvendo com Foreach
+        // Resolvendo com loop (foreach)
         private static void Solution02()
         {
             var numbersSquare = new int[4];
@@ -47,7 +47,7 @@ namespace _Lambda
         }
 
 
-        // Resolvendo com Linq puro
+        // Resolvendo com Linq
         private static void Solution03()
         {
             var numbersSquare = from item in numbers 
@@ -66,8 +66,8 @@ namespace _Lambda
         }
         
         
-
-
-        //Obs: As soluções Linq e Lambda utilizam um loop por baixo, como se fosse um for ou foreach.
+        /* =========================== 
+            Obs: As soluções Linq e Lambda utilizam um loop por baixo, como se fosse um for ou foreach.
+        ============================== */
     }
 }
