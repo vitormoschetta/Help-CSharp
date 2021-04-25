@@ -10,14 +10,20 @@ namespace Degug
     {        
         static void Main(string[] args)
         {   
-            List<string> list = new List<string>()
+            List<Product> list = new List<Product>()
             {
-                "one",
-                "two",
-                "three"
+                new Product("one"),
+                new Product("two"),
+                new Product("three")
             };
 
-            var x = list.Find(x => x.Contains("three"));
+            // criar uma lista somente leitura a partir de outra lista
+            var listReadOnly = list.AsReadOnly();
+
+            // bool para verificação de existencia ... 
+            var contains = list.Exists(x => x.Name.Contains("one")); 
+
+            
             
         }       
 

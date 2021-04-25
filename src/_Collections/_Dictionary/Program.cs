@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace _Dictionary
 {
@@ -12,11 +11,10 @@ namespace _Dictionary
             try
             {
                 SetDict();
-                ExploreDict();
-                ExploreDictLinq();
-
-                // A key 03 já existe no Dicionário, ao tentar adicionar novamente levantamos uma exeção            
-                dict.Add("03", "Ruby");
+                ExploreMethods();
+                       
+                dict.Add("03", "Ruby"); 
+                // A key 03 já existe na coleção, ao tentar adicionár uma Key já existente tomamos uma exceção   
             }
             catch (Exception ex)
             {
@@ -32,31 +30,18 @@ namespace _Dictionary
             dict.Add("03", "NodeJS");
         }
 
-        static void ExploreDict()
-        {
-            Console.WriteLine("\n");
+        static void ExploreMethods()
+        {            
+            bool contains = dict.ContainsKey("04"); // false
 
-            Console.WriteLine(string.Join("; ", dict.Keys));
-            Console.WriteLine(string.Join("; ", dict.Values));
+            contains = dict.ContainsValue("C#"); // true
+            
+            int count = dict.Count; // 3
 
-            Console.WriteLine(dict.ContainsKey("04"));
-            Console.WriteLine(dict.ContainsValue("C#"));
+            dict.Remove("01"); // remove C#            
 
-            Console.WriteLine(dict.Count);
-
-            dict.Remove("01");
-            Console.WriteLine(string.Join("; ", dict.Values));
-
-            dict.TryGetValue("02", out string valor);
-            Console.WriteLine(valor);
+            dict.TryGetValue("02", out string item); // item = Python        
         }
 
-
-        static void ExploreDictLinq()
-        {
-            Console.WriteLine("\n");
-
-            Console.WriteLine(dict.FirstOrDefault(x => x.Key == "02"));
-        }
     }
 }
