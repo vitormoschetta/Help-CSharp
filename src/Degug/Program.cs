@@ -5,16 +5,14 @@ using System.Text.Json.Serialization;
 
 namespace Degug
 {
-    public class Generic
-    { }
-
-    public class Quote : Generic
+    public class QuoteItem
     {
-        public string Number { get; set; }
-    }
-
-    public class QuoteItem : Generic
-    {
+        public QuoteItem(string productCode, string productDescription, string quoteNumber)
+        {
+            ProductCode = productCode;
+            ProductDescription = productDescription;
+            QuoteNumber = quoteNumber;
+        }
         public string ProductCode { get; set; }
         public string ProductDescription { get; set; }
         public string QuoteNumber { get; set; }
@@ -24,11 +22,15 @@ namespace Degug
     {
         static void Main(string[] args)
         {
-            string request01 = JsonSerializer.Serialize(new Quote() { Number = "001" });
-            string request02 = JsonSerializer.Serialize(new QuoteItem() { ProductCode = "150", ProductDescription = "Product Xpto", QuoteNumber = "001" });
-            
-            var quote = JsonSerializer.Deserialize<Quote>(request01);
-            var quoteItem = JsonSerializer.Deserialize<QuoteItem>(request02);
+            byte[] jsonUtf8Bytes;
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true
+            };
+            jsonUtf8Bytes = JsonSerializer.SerializeToUtf8Bytes(new QuoteItem("150", "Product Xpto", "001"));
+
+            var readOnlySpan = new ReadOnlySpan<byte>(jsonUtf8Bytes);
+            var quoteItem = JsonSerializer.Deserialize<QuoteItem>(readOnlySpan);
         }
-    }    
+    }
 }
