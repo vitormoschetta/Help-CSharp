@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Globalization;
 
-namespace Degug
+namespace _Switch
 {
     class Program
     {
