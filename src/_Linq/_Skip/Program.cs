@@ -1,25 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
 
-namespace Degug
+namespace _Skip
 {
     class Program
     {
-        public enum EStatus
-        {
-            created = 1,
-            updated = 2,
-            deleted = 3
-        }
         static void Main(string[] args)
         {
-            var items = ReturnList().Skip(3);
+            var items = GetList();
+            Console.WriteLine(string.Join(" | ", items));
+
+            items = GetList().Skip(3); // pega os itens do indice 3 pra frente
             Console.WriteLine(string.Join(" | ", items));
         }
 
-        static List<string> ReturnList()
+        static List<string> GetList()
         {
             return new List<string>(){
                 "item 01",
