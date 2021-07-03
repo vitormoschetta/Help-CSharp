@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace _Skip
+namespace _Where
 {
     class Program
     {
@@ -11,7 +11,8 @@ namespace _Skip
             var items = GetItems();
             Console.WriteLine(string.Join(" | ", items));
 
-            var items2 = GetItems().Skip(3); // pega os itens do indice 3 pra frente
+            // a cláusula where funciona como um filtro: 
+            var items2 = GetItems().Where(x => x.Contains("01"));
             Console.WriteLine(string.Join(" | ", items2));
         }
 
@@ -24,6 +25,12 @@ namespace _Skip
                 "item 04",
                 "item 05",
                 "item 06",
+                "product 01",
+                "product 02",
+                "product 03",
+                "product 04",
+                "product 05",
+                "product 06",
             };
         }
     }
