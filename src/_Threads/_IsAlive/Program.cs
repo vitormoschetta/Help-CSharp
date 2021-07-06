@@ -8,6 +8,8 @@ namespace _IsAlive
     {
         static void Main(string[] args)
         {
+            Cronometro.Start();
+
             // aqui estamos criando uma Thread para cada método, ou seja, eles irão executar em paralelo:
             var threadA = new Thread(Processos.ProcessoA); 
             var threadB = new Thread(Processos.ProcessoB); 
@@ -26,6 +28,8 @@ namespace _IsAlive
             }
 
             Console.WriteLine("\nProceso concluído!");
+
+            Cronometro.Stop();
         }
     }
 }

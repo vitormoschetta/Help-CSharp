@@ -5,13 +5,8 @@ namespace Shared
 {
     public static class Processos
     {
-        public static Stopwatch stopwatch;
-
         public static void ProcessoA()
         {
-            stopwatch = new Stopwatch();   
-            stopwatch.Start();
-
             for (long i = 0; i < 900000000; i++)
             {
 
@@ -35,10 +30,6 @@ namespace Shared
 
             }
             Console.WriteLine("Processo C concluído!");
-            
-            stopwatch.Stop();
-            Console.WriteLine($"\nTempo passado: {stopwatch.Elapsed}");
-            stopwatch.Restart();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Threading;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using Shared;
 
 namespace _Task
 {
@@ -14,13 +15,20 @@ namespace _Task
 
         static void ExecuteProcessos()
         {
+            Cronometro.Start();
+            Console.WriteLine("\n====== Iniciando processos =======");
+
             Processos.ProcessoA();
             Processos.ProcessoB();
             Processos.ProcessoC();
+
+            Cronometro.Stop();
         }
         static void ExecuteProcessosAsync()
         {
-            //Task.Factory.StartNew(Mediador.Execute);    
+            Cronometro.Start();
+            Console.WriteLine("\n======= Iniciando processos assincronos =======");
+
             var tarefas = new Task[3];
 
             tarefas[0] = Task.Run(() => Processos.ProcessoA());
@@ -28,86 +36,33 @@ namespace _Task
             tarefas[2] = Task.Run(() => Processos.ProcessoC());
 
             Task.WaitAll(tarefas);
+
+            Cronometro.Stop();
         }
 
         static void ExecuteProcessosAsync2()
         {
-            Task.Run(() =>
-            {
-                Processos.ProcessoA();
-                Processos.ProcessoB();
-                Processos.ProcessoC();                
-            });            
-        }
+            Cronometro.Start();
+            Console.WriteLine("\n======= Iniciando processos assincronos =======");
 
-        static void ExecuteMetodos()
-        {
-            // Apenas uma Thread executando os métodos de forma síncrona:
-            Metodos.MetodoA();
-            Metodos.MetodoB();
-            Metodos.MetodoC();
-
-
-            Console.WriteLine("\n");
-
-
-
-            // Executando as Tasks de forma assíncrona:
-            Task taskA = new Task(Metodos.MetodoA);
-            Task taskB = new Task(Metodos.MetodoB);
-            Task taskC = new Task(Metodos.MetodoC);
-            taskA.Start();
-            taskB.Start();
-            taskC.Start();
-            taskA.Wait();
-            taskB.Wait();
-            taskC.Wait();
-
-
-            Console.WriteLine("\n");
-
-
-            // Outra forma de executar Tasks de forma assíncrona:
             var tarefas = new Task[3];
-
-            tarefas[0] = Task.Run(() => Metodos.MetodoA());
-            tarefas[1] = Task.Run(() => Metodos.MetodoB());
-            tarefas[2] = Task.Run(() => Metodos.MetodoC());
-
+            tarefas[0] = ProcessosAsync.ProcessoA();
+            tarefas[1] = ProcessosAsync.ProcessoB();
+            tarefas[2] = ProcessosAsync.ProcessoC();
+        
             Task.WaitAll(tarefas);
-
-
-            Console.WriteLine("\n");
-
-
-            // Executando as Tasks de forma síncrona:
-            taskA = new Task(Metodos.MetodoA);
-            taskB = new Task(Metodos.MetodoB);
-            taskC = new Task(Metodos.MetodoC);
-
-            taskA.Start();
-            taskA.Wait();
-
-            taskB.Start();
-            taskB.Wait();
-
-            taskC.Start();
-            taskC.Wait();
-
         }
 
-
-
-        static void ExecuteMetodosComRetorno()
+        static void ExecuteProcessosAsync3()
         {
-            // Apenas uma Thread executando os métodos de forma síncrona:
-            Console.WriteLine(MetodosComRetorno.MetodoA().Result);
-            Console.WriteLine(MetodosComRetorno.MetodoB().Result);
-            Console.WriteLine(MetodosComRetorno.MetodoC().Result);
+            Cronometro.Start();
+            Console.WriteLine("\n======= Iniciando processos assincronos =======");
 
+            Console.WriteLine(ProcessosComRetorno.ProcessoA());
+            Console.WriteLine(ProcessosComRetorno.ProcessoA());
+            Console.WriteLine(ProcessosComRetorno.ProcessoA());
 
-            Console.WriteLine("\n");
-
+            Cronometro.Stop();
         }
     }
 }
