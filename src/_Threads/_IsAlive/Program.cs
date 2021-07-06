@@ -9,9 +9,9 @@ namespace _IsAlive
         static void Main(string[] args)
         {
             // aqui estamos criando uma Thread para cada método, ou seja, eles irão executar em paralelo:
-            var threadA = new Thread(Methods.MetodoA); 
-            var threadB = new Thread(Methods.MetodoB); 
-            var threadC = new Thread(Methods.MetodoC); 
+            var threadA = new Thread(Processos.ProcessoA); 
+            var threadB = new Thread(Processos.ProcessoB); 
+            var threadC = new Thread(Processos.ProcessoC); 
             threadA.Start();
             threadB.Start();
             threadC.Start();

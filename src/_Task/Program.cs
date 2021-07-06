@@ -8,8 +8,36 @@ namespace _Task
     {
         static void Main(string[] args)
         {
-            ExecuteMetodos();
-            //ExecuteMetodosComRetorno();
+            //ExecuteProcessos();
+            ExecuteProcessosAsync2();
+        }
+
+        static void ExecuteProcessos()
+        {
+            Processos.ProcessoA();
+            Processos.ProcessoB();
+            Processos.ProcessoC();
+        }
+        static void ExecuteProcessosAsync()
+        {
+            //Task.Factory.StartNew(Mediador.Execute);    
+            var tarefas = new Task[3];
+
+            tarefas[0] = Task.Run(() => Processos.ProcessoA());
+            tarefas[1] = Task.Run(() => Processos.ProcessoB());
+            tarefas[2] = Task.Run(() => Processos.ProcessoC());
+
+            Task.WaitAll(tarefas);
+        }
+
+        static void ExecuteProcessosAsync2()
+        {
+            Task.Run(() =>
+            {
+                Processos.ProcessoA();
+                Processos.ProcessoB();
+                Processos.ProcessoC();                
+            });            
         }
 
         static void ExecuteMetodos()
@@ -65,7 +93,7 @@ namespace _Task
 
             taskC.Start();
             taskC.Wait();
-            
+
         }
 
 
@@ -79,7 +107,7 @@ namespace _Task
 
 
             Console.WriteLine("\n");
-        
+
         }
     }
 }

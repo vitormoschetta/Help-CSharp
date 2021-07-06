@@ -8,9 +8,9 @@ namespace _Example
         static void Main(string[] args)
         {
             // Apenas uma Thread executando os métodos de forma síncrona:
-            Methods.MetodoA();
-            Methods.MetodoB();
-            Methods.MetodoC();
+            Processos.ProcessoA();
+            Processos.ProcessoB();
+            Processos.ProcessoC();
 
             Console.WriteLine("\nProceso concluído!");
         }

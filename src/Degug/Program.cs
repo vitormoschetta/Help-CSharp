@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Threading.Tasks;
+using Shared;
 
 namespace Degug
 {
@@ -9,13 +11,17 @@ namespace Degug
     {
         static void Main(string[] args)
         {
-            int valor = 5;
-            var resultado = 1L;
+            ExecuteProcessosAsync2();
+        }
 
-            for (int i = valor; i >= 2; i--)
-               resultado *= i;
-
-            Console.WriteLine(resultado);
-        }       
+        static void ExecuteProcessosAsync2()
+        {
+            Task.Run(() =>
+            {
+                Processos.ProcessoA();
+                Processos.ProcessoB();
+                Processos.ProcessoC();
+            });
+        }
     }
 }
