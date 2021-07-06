@@ -6,10 +6,16 @@ namespace _Project
     {
         static void Main(string[] args)
         {
-            var assembly = typeof(dll.Metodos).Assembly;
+            GetShared();            
+        }
+
+
+        static void GetShared()
+        {
+            var assembly = typeof(Shared.Processos).Assembly;
             Console.WriteLine(assembly);
 
-            Type type = typeof(dll.Metodos);
+            Type type = typeof(Shared.Processos);
             Console.WriteLine(type);            
 
             // descobrir propriedades e métodos de uma classe em uma dll:            
@@ -18,7 +24,6 @@ namespace _Project
             {
                 Console.WriteLine(method.Name);
             }
-            
         }
     }
 }

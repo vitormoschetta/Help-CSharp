@@ -8,6 +8,7 @@
   <ItemGroup>
     <Reference Include="libX">
       <HintPath>./libs/dll.dll</HintPath>
+      <HintPath>./libs/Shared.dll</HintPath>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Reference>
   </ItemGroup>
