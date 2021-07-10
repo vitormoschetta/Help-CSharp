@@ -1,4 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using Shared;
 
 namespace Degug
@@ -6,27 +10,20 @@ namespace Degug
     class Program
     {
         static void Main(string[] args)
-        {            
-            Parallel.Invoke(
-                () => Execute(), 
-                () => Execute2());
+        {
+            int tempo = 5;
+
+            Aguardar(tempo);
+
+            Console.WriteLine("Já passou {0} segundos", tempo);
+            Console.ReadLine();
         }
 
-        static void Execute()
+        static async void Aguardar(int tempo)
         {
-           Processos.ProcessoA();
-           Processos.ProcessoB();
-           Processos.ProcessoC();
-        }
-
-        static void Execute2()
-        {
-            var tarefas = new Task[3];
-            tarefas[0] = ProcessosAsync.ProcessoA();
-            tarefas[1] = ProcessosAsync.ProcessoB();
-            tarefas[2] = ProcessosAsync.ProcessoC();
-        
-            Task.WaitAll(tarefas);
+            Console.WriteLine("Iniciando...");
+            await Task.Delay(TimeSpan.FromSeconds(tempo));
+            Console.WriteLine("Fim...");
         }
     }
 }
