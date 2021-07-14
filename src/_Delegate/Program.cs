@@ -1,63 +1,77 @@
 ﻿using System;
 using System.Threading;
-using _Delegate.Services;
+
 
 namespace _Delegate
 {
 
     /* 
-    Delegados são usados para passar métodos como argumentos a outros métodos.         
-    Esclarecendo, delagado é um tipo de variável que recebe um método como valor. 
+    Delegados são usados para passar métodos como argumentos a outros métodos. 
+    Para que isse seja possível, os delagados podem ser armazenados como uma variável.
 
-    A única observação é que o delagado precisa ser declarado com a mesma assinatura do(s) método(s) que ele irá receber como valor. Ou seja,
-    deve conter a mesma assinatura de método.
+    A única observação é que o delagado precisa ser declarado com a mesma assinatura do(s) método(s) que ele irá receber como valor.
     
-    Essa capacidade de se referir a um método como um parâmetro torna delegados ideais trabalhar com callback, ou promessas. Ou seja
-    passar uma funcionalidade inteira como parâmetro para uma outra rotina, para que em um momento determinado o delegado seja invocado e execute
-    a funcionalidade que de outra forma estaria fora do escopo.
+    Essa capacidade de se referir a um método como um parâmetro torna delegados ideais trabalhar com callback, ou promessas. 
+    Ou seja passar uma funcionalidade inteira como parâmetro para uma outra rotina, para que em um momento determinado o delegado 
+    seja invocado e execute a funcionalidade que de outra forma estaria fora do escopo.
     */
 
-    // Observe este exemplo e delegate abaixo:
-    public delegate void DelMyDel(decimal x, decimal y);    
+    // Observe este exemplo e delegate:
+    public delegate decimal DelCalc(decimal x, decimal y, char operation);
 
-    // Este delegado pode ser utilizado para receber como valor qualquer método que receba dois números decimais, e retorne um decimal.     
-    
-        
+    // O delegate acima pode ser utilizado para armazenar qualquer método que receba dois deimais e um char e retorne um decimal.
+
+    public delegate void DelGenericValidate<T>(T item);
+
     class Program
-    {        
+    {
         static void Main(string[] args)
-        {             
-            // Instancia o delegate informando um método existente:
+        {
+            // Podemos criar atribuindo o método numa expressão lambda:
 
-            DelPrint delPrint = new Printer().PublicPrint();
-            Printer(delPrint);
+            DelCalc delCalc = (x, y, operation) =>
+            {
+                switch (operation)
+                {
+                    case '+':
+                        return x + y;
+                    case '-':
+                        return x - y;
+                    case '*':
+                        return x * y;
+                    case '/':
+                        return x / y;
+                    default:
+                        return x + y;
+                }
+            };
 
-            DelCalcGeneric delCalc = new Calculator().GenericCalc;
-            Calculator(delCalc);          
+            Calculator(delCalc, 5, 2, '*');
 
 
-            // Instancia o delegate criando um método:
-            DelMyDel delMyDel = delegate(decimal x, decimal y) { Console.WriteLine(x + y); };
-            delMyDel.Invoke(2,9);
+            // Podemos passar ao delegate um método já existente:
 
-            // Instancia o delegate criando um método utilizando lambda expression:
-            DelMyDel delMyDel102 = (x,y) => { Console.WriteLine(x + y); };
-            delMyDel102.Invoke(55,1);
+            DelCalc delCalc1 = new Calculator().GenericCalc;
+            Calculator(delCalc1, 7, 13, '+');
+
+            Teste();
         }
 
-
-        static void Printer(DelPrint delPrint)
+        static void Calculator(DelCalc delCalc, decimal x, decimal y, char operation)
         {
             Thread.Sleep(1000);
-            delPrint.Invoke();
-        }
-
-
-        static void Calculator(DelCalcGeneric delCalc)
-        {
-            Thread.Sleep(1000);
-            var result = delCalc.Invoke(2,5, '*');
+            var result = delCalc.Invoke(x, y, operation);
             Console.WriteLine(result);
-        }                      
-    }    
+        }
+
+        static void Teste()
+        {
+            DelGenericValidate<string> delGenericValidate = (string mensagem) =>
+            {
+                Console.WriteLine(mensagem);
+            };
+
+            delGenericValidate.Invoke("Teste mensagem");
+        }
+    }
 }

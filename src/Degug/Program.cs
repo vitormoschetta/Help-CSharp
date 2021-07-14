@@ -11,19 +11,26 @@ namespace Degug
     {
         static void Main(string[] args)
         {
-            int tempo = 5;
+            var prodA = new Product("Manteiga");
+            Console.WriteLine(prodA.Name);
 
-            Aguardar(tempo);
+            var prodB = prodA;
+            Console.WriteLine(prodB.Name);
 
-            Console.WriteLine("Já passou {0} segundos", tempo);
-            Console.ReadLine();
+            prodA.Name = "Leite";
+            Console.WriteLine(prodA.Name);
+            Console.WriteLine(prodB.Name);
+
         }
+    }
 
-        static async void Aguardar(int tempo)
+    public struct Product
+    {
+        public Product(string name)
         {
-            Console.WriteLine("Iniciando...");
-            await Task.Delay(TimeSpan.FromSeconds(tempo));
-            Console.WriteLine("Fim...");
+            Name = name;
         }
+
+        public string Name { get; set; }
     }
 }
