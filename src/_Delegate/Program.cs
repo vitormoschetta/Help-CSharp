@@ -66,7 +66,7 @@ namespace _Delegate
 
         static void Teste()
         {
-            DelGenericValidate<string> delGenericValidate = (string mensagem) =>
+            DelGenericValidate<string> delGenericValidate = mensagem =>
             {
                 Console.WriteLine(mensagem);
             };
